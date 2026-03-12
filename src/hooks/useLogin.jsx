@@ -9,7 +9,7 @@ import { ROUTES } from '../const';
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState();
-  const [visiblePassword, setVisiblePassword] = useState(true);
+  const [visiblePassword, setVisiblePassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

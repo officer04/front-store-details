@@ -1,17 +1,15 @@
 import styles from './Login.module.scss';
 
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { IoEye } from 'react-icons/io5';
 import { FaEyeSlash } from 'react-icons/fa';
 
-import { ROUTES } from '../../const';
+import { EMAIL_PATTERN, ROUTES } from '../../const';
 import { useLogin } from '../../hooks/useLogin';
 
-import exclamation from './../../images/exclamation.svg';
 import Button from '../UI/Button/Button';
+import { InputField } from '../UI/InputField/InputField';
 
 const Login = () => {
-
   const {
     onSubmit,
     handleSubmit,
@@ -21,7 +19,7 @@ const Login = () => {
     isValid,
     handleClickVisiblePassword,
     visiblePassword,
-    isLoading
+    isLoading,
   } = useLogin();
 
   return (
@@ -30,68 +28,49 @@ const Login = () => {
         <h1 className={styles.head}>Авторизация</h1>
         {error && <p className={styles.err}>{error}</p>}
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.groupEmail}>
-            <label>
-              <h3>Электронная почта</h3>
-              <div className={styles.inputEmail}>
-                <input
-                  placeholder="Электронная почта"
-                  autoComplete="email"
-                  {...register('email', {
-                    required: 'Поля обязательное к заполнению',
-                    pattern: {
-                      value:
-                        /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
-                      message: 'Почта указана не верно',
-                    },
-                  })}
-                />
-              </div>
-
-              {formError?.email && (
-                <div className={styles.exclamation}>
-                  <img src={exclamation} />
-                  <p>{formError.email.message}</p>
-                </div>
-              )}
-            </label>
-          </div>
-          <div className={styles.groupPassword}>
-            <label>
-              <h3>Пароль</h3>
-              <div className={styles.inputPassword}>
-                <input
-                  type={visiblePassword ? 'password' : 'text'}
-                  placeholder="Пароль"
-                  {...register('password', {
-                    required: 'Поля обязательное к заполнению',
-                  })}
-                />
-                <button className={styles.btnEye} onClick={(e) => handleClickVisiblePassword(e)}>
-                  {!visiblePassword ? (
-                    <IoEye color={'black'} size={22} />
-                  ) : (
-                    <FaEyeSlash color={'black'} size={22} />
-                  )}
-                </button>
-              </div>
-              {formError?.password && (
-                <div className={styles.exclamation}>
-                  <img src={exclamation} />
-                  <p>{formError.password.message}</p>
-                </div>
-              )}
-            </label>
-          </div>
+          <InputField
+            type='email'
+            label='Электронная почта'
+            placeholder="'Электронная почта"
+            register={register}
+            name={'email'}
+            error={formError?.email?.message}
+            validation={{
+              required: 'Поле обязательно к заполнению',
+              pattern: {
+                value: EMAIL_PATTERN,
+                message: 'Почта указана не верно',
+              },
+            }}
+          />
+          <InputField
+            type={visiblePassword? "text" : 'password'}
+            label='Пароль'
+            placeholder="Пароль"
+            register={register}
+            icon={true}
+            name={'password'}
+            error={formError?.password?.message}
+            onClick={handleClickVisiblePassword}
+            icon1={<IoEye color={'black'} size={22} />}
+            icon2={<FaEyeSlash color={'black'} size={22} />}
+            visibleIcon={visiblePassword}
+            validation={{
+              required: 'Поле обязательно к заполнению',
+            }}
+          />
           <div className={styles.resetPassword}>
             <Button to={ROUTES.RESET_PASSWORD_REQUEST}>Забыли пароль?</Button>
           </div>
-          <Button disabled={!isValid || isLoading} styleMargin={styles.buttonMargin}>
-            {isLoading ? (
-              <AiOutlineLoading3Quarters size={15} className="rotating-svg" />
-            ) : (
-              'Войти'
-            )}
+          <Button
+            type="submit"
+            size="large"
+            variant="outline"
+            disabled={!isValid || isLoading}
+            loading={isLoading}
+            className={styles.button}
+          >
+            Войти
           </Button>
         </form>
         <p className={styles.text}>
