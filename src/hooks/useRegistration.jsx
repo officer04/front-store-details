@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { jwtDecode } from 'jwt-decode';
-import { addUser, login } from '../Redux/userSlice/userSlice';
+import { addUser, registration } from '../Redux/userSlice/userSlice';
 import { ROUTES } from '../const';
 
-export const useLogin = () => {
+export const useRegistration = () => {
   const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState();
   const [visiblePassword, setVisiblePassword] = useState(false);
@@ -24,7 +24,7 @@ export const useLogin = () => {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    dispatch(login(data)).then((response) => {
+    dispatch(registration(data)).then((response) => {
       if (response.payload.response?.status === 400) {
         setError(response.payload.response.data.message);
         setIsLoading(false);
@@ -32,7 +32,7 @@ export const useLogin = () => {
         return;
       }
 
-      if (response.payload?.status === 200) {
+      if (response.payload?.status === 201) {
         setIsLoading(false);
         const token = response.payload.data.token;
         const user = jwtDecode(token);
@@ -51,6 +51,7 @@ export const useLogin = () => {
     e.preventDefault();
     setVisiblePassword(!visiblePassword);
   };
+
 
   return {
     onSubmit,

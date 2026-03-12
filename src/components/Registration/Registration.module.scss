@@ -36,98 +36,10 @@
       align-items: center;
       justify-content: center;
 
-      .groupEmail {
-        margin-bottom: 10px;
-
-        h3 {
-          margin-bottom: 5px;
-          font-size: 14px;
-          font-weight: 500;
-        }
-
-        p {
-          margin-bottom: 5px;
-          font-size: 14px;
-          font-weight: 500;
-          color: red;
-        }
-
-        .inputEmail {
-          position: relative;
-          input {
-            padding: 15px 25px;
-            border-radius: 5px;
-            width: 300px;
-            margin-bottom: 5px;
-          }
-
-          .btnFix {
-            padding: 0;
-            border: none;
-            font: inherit;
-            color: inherit;
-            background-color: transparent;
-            cursor: pointer;
-            position: absolute;
-            top: 12px;
-            right: 10px;
-          }
-        }
-
-        .exclamation {
-          display: flex;
-
-          p {
-            margin-bottom: 0;
-          }
-        }
+      .button {
+        width: 300px;
       }
-
-      .groupPassword {
-        h3 {
-          margin-bottom: 5px;
-          font-size: 14px;
-          font-weight: 500;
-        }
-
-        p {
-          margin-bottom: 5px;
-          font-size: 14px;
-          font-weight: 500;
-          color: red;
-        }
-
-        .inputPassword {
-          position: relative;
-          input {
-            padding: 15px 25px;
-            border-radius: 5px;
-            width: 300px;
-            margin-bottom: 5px;
-          }
-
-          .btnEye {
-            padding: 0;
-            border: none;
-            font: inherit;
-            color: inherit;
-            background-color: transparent;
-            cursor: pointer;
-            position: absolute;
-            top: 11px;
-            right: 10px;
-          }
-        }
-
-        .exclamation {
-          display: flex;
-
-          p {
-            margin-bottom: 0;
-          }
-        }
-      }
-
+      
       .resetPassword {
         display: flex;
         margin-bottom: 10px;
@@ -140,9 +52,6 @@
         }
       }
 
-      .buttonWidth {
-        width: 100%;
-      }
     }
 
     .text {
@@ -155,10 +64,5 @@
       }
     }
   }
-}
-
-
-.buttonMargin {
-  margin-top: 15px;
 }
 
