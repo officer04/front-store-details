@@ -36,30 +36,36 @@
 .primary {
   background-color: #007bff;
   color: white;
+  transition: 1s;
 }
 
 .primary:hover:not(:disabled) {
   background-color: #0056b3;
+  transition: 1s;
 }
 
 .secondary {
   background-color: #6c757d;
   color: white;
+  transition: 1s;
 }
 
 .secondary:hover:not(:disabled) {
   background-color: #545b62;
+  transition: 1s;
 }
 
 .outline {
   background-color: transparent;
   color: #007bff;
   border: 1px solid #007bff;
+  transition: 1s;
 }
 
 .outline:hover:not(:disabled) {
   background-color: #007bff;
   color: white;
+  transition: 1s;
 }
 
 /* На всю ширину */

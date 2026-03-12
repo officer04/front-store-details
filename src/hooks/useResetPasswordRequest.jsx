@@ -1,16 +1,13 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { jwtDecode } from 'jwt-decode';
-import { addUser, registration } from '../Redux/userSlice/userSlice';
-import { ROUTES } from '../const';
+import { resetPasswordRequest } from '../Redux/userSlice/userSlice';
 
-export const useRegistration = () => {
+export const useResetPasswordRequest = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [visiblePassword, setVisiblePassword] = useState(false);
-  const navigate = useNavigate();
+  const [isVisibleForm, setIsVisibleForm] = useState(false);
+  const [error, setError] = useState();
+  const [email, setEmail] = useState()
   const dispatch = useDispatch();
 
   const {
@@ -19,12 +16,13 @@ export const useRegistration = () => {
     formState: { errors, isValid },
     handleSubmit,
   } = useForm({
-    mode: 'onChange',
+    mode: 'all',
   });
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    dispatch(registration(data)).then((response) => {
+    setEmail(data.email);
+    dispatch(resetPasswordRequest(data)).then((response) => {
       if (response.payload.response?.status === 400) {
         setError(response.payload.response.data.message);
         setIsLoading(false);
@@ -33,12 +31,7 @@ export const useRegistration = () => {
       }
 
       if (response.payload?.status === 201) {
-        setIsLoading(false);
-        const token = response.payload.data.token;
-        const user = jwtDecode(token);
-        localStorage.setItem('token', token);
-        dispatch(addUser(user));
-        navigate(ROUTES.ASSORTMENT);
+        setIsVisibleForm(true)
         setIsLoading(false);
         return;
       }
@@ -47,21 +40,15 @@ export const useRegistration = () => {
     });
   };
 
-  const handleClickVisiblePassword = (e) => {
-    e.preventDefault();
-    setVisiblePassword(!visiblePassword);
-  };
-
-
   return {
     onSubmit,
     handleSubmit,
     register,
     error,
+    email,
+    isVisibleForm,
     formError: errors,
     isValid,
-    handleClickVisiblePassword,
-    visiblePassword,
     isLoading,
   };
 };

@@ -1,6 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { createApiThunk } from '../../utils/createApiThunk';
 import { getDefaultUser } from '../../utils/getDefaultUser';
+import { instance } from '..';
 
 export const login = createApiThunk('user/login', 'post', '/auth/login');
 export const registration = createApiThunk('basket/update', 'post', '/auth/registration');
@@ -22,19 +23,19 @@ export const resetPasswordRequest = createApiThunk(
   'post',
   '/auth/reset-password-request',
 );
-export const resetPassword = createApiThunk('auth/resetPassword', 'post', (payload) => `/auth/reset-password/${payload.requestId}`); // Не рабочий
+// export const resetPassword = createApiThunk('auth/resetPassword', 'post', (payload) => `/auth/reset-password/${payload.requestId}`); // Не рабочий
 
-// export const resetPassword = createAsyncThunk('auth/resetPassword', async (payload, thunkAPI) => {
-//   try {
-//     const response = await authAxios.post(
-//       `/auth/reset-password/${payload.requestId}`,
-//       payload.body,
-//     );
-//     return response;
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue(error);
-//   }
-// });
+export const resetPassword = createAsyncThunk('auth/resetPassword', async (payload, thunkAPI) => {
+  try {
+    const response = await instance.post(
+      `/auth/reset-password/${payload.requestId}`,
+      payload.body,
+    );
+    return response;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+  }
+});
 
 const initialState = {
   user: getDefaultUser(),

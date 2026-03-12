@@ -1,17 +1,20 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { jwtDecode } from 'jwt-decode';
-import { addUser, login } from '../Redux/userSlice/userSlice';
+import { resetPassword } from '../Redux/userSlice/userSlice';
+import { useParams } from 'react-router-dom';
 import { ROUTES } from '../const';
+import { useNavigate } from 'react-router-dom';
 
-export const useLogin = () => {
+export const useResetPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [visiblePassword, setVisiblePassword] = useState(false);
-  const navigate = useNavigate();
+  const [visibleRepeatPassword, setVisibleRepeatPassword] = useState(false);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { requestId } = useParams();
 
   const {
     register,
@@ -19,12 +22,13 @@ export const useLogin = () => {
     formState: { errors, isValid },
     handleSubmit,
   } = useForm({
-    mode: 'onChange',
+    mode: 'all',
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (obj) => {
     setIsLoading(true);
-    dispatch(login(data)).then((response) => {
+    const data = { requestId: requestId, body: { newPassword: obj.password } };
+    dispatch(resetPassword(data)).then((response) => {
       if (response.payload.response?.status === 400) {
         setError(response.payload.response.data.message);
         setIsLoading(false);
@@ -32,14 +36,8 @@ export const useLogin = () => {
         return;
       }
 
-      if (response.payload?.status === 200) {
-        setIsLoading(false);
-        const token = response.payload.data.token;
-        const user = jwtDecode(token);
-        localStorage.setItem('token', token);
-        dispatch(addUser(user));
-        navigate(ROUTES.ASSORTMENT);
-        setIsLoading(false);
+      if (response.payload?.status === 201) {
+        navigate(ROUTES.LOGIN);
         return;
       }
       setError('Ошибка на сервере, попробуйте позже');
@@ -52,15 +50,22 @@ export const useLogin = () => {
     setVisiblePassword(!visiblePassword);
   };
 
+  const handleClickVisibleRepeatPassword = (e) => {
+    e.preventDefault();
+    setVisibleRepeatPassword(!visibleRepeatPassword);
+  };
+
   return {
     onSubmit,
     handleSubmit,
     register,
     error,
+    handleClickVisiblePassword,
+    handleClickVisibleRepeatPassword,
+    visiblePassword,
+    visibleRepeatPassword,
     formError: errors,
     isValid,
-    handleClickVisiblePassword,
-    visiblePassword,
     isLoading,
   };
 };
