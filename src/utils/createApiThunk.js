@@ -21,8 +21,8 @@ export const createApiThunk = (typePrefix, method, urlOrFn) => {
       return response;
     } catch (error) {
       console.error(`Ошибка в ${typePrefix}:`, error);
-      const message = error?.response?.data?.message || error.message;
-      return thunkAPI.rejectWithValue(message);
+      // const message = error?.response?.data?.message || error.message;
+      return thunkAPI.rejectWithValue(error);
     }
   });
 };
