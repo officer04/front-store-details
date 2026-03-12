@@ -1,0 +1,68 @@
+.cardProduct {
+  border-radius: 10px;
+  width: 250px;
+  height: 490px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px 0px;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+  .img {
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 18px;
+    text-align: center;
+    height: 120px;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+
+    .priceSale {
+      text-align: center;
+      margin-bottom: auto;
+      font-weight: 700;
+      font-size: 12px;
+      text-decoration: line-through;
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    .price {
+      text-align: center;
+      margin-bottom: auto;
+      font-weight: 700;
+      font-size: 18px;
+    }
+  
+    .sale {
+      font-size: 19px;
+      color: black;
+      font-weight: 700;
+    }
+
+    .countSale {
+      background-color: black;
+      color: white;
+      padding: 4px;
+      border-radius: 5px;
+    }
+  }
+  
+
+  .wrapper {
+    display: flex;
+    gap: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .styleWidth {
+    width: 203px;
+  }
+}

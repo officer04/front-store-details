@@ -1,0 +1,32 @@
+.home {
+  min-height: 70vh;
+  background-image: url("./../../../public/img/backHome.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.home .container {
+  width: 1230px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+.home .container .title {
+  width: 800px;
+  margin-bottom: 50px;
+  font-size: 40px;
+  line-height: 80px;
+  font-weight: 700;
+}
+.home .container .button {
+  border: 3px solid white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+}
+.home .container .button:hover {
+  transform: translateY(50px);
+}/*# sourceMappingURL=Home.module.css.map */

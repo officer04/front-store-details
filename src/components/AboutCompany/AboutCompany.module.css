@@ -1,0 +1,33 @@
+.aboutCompany {
+  min-height: 70vh;
+  background-color: #d2d2d2;
+  padding: 50px 0;
+}
+.aboutCompany .container {
+  width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.aboutCompany .container .title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.aboutCompany .container .card {
+  width: 800px;
+  border-radius: 10px;
+  background-color: white;
+}
+.aboutCompany .container .card p {
+  font-size: 16px;
+  padding: 20px;
+  border-bottom: 1px solid red;
+}
+.aboutCompany .container .card .text {
+  padding: 20px;
+}/*# sourceMappingURL=AboutCompany.module.css.map */

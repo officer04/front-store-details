@@ -1,0 +1,112 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 15vh;
+  padding: 30px 0;
+
+  .container {
+    width: 1230px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    .nav {
+      display: flex;
+      gap: 0 20px;
+
+      li {
+        .link {
+          color: #595fef;
+          font-weight: 700;
+          transition: color 0.3s ease-in;
+        }
+
+        .link:hover {
+          color: rgb(182, 33, 33);
+        }
+
+        .link.active {
+          color: rgb(182, 33, 33);
+        }
+      }
+    }
+
+    .infoUser {
+      display: flex;
+      gap: 0 20px;
+      color: #595fef;
+      font-weight: 700;
+
+      a {
+        position: relative;
+        color: #595fef;
+        p {
+          position: absolute;
+          top: 7px;
+          left: 15px;
+        }
+      }
+
+      .toggle {
+        cursor: pointer;
+        transition: color 0.3s ease-in;
+
+        &:hover {
+          color: red;
+        }
+      }
+
+      .basket {
+        cursor: pointer;
+      }
+
+      .exit {
+        cursor: pointer;
+        transition: color 0.3s ease-in;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+
+    .login {
+      text-align: center;
+
+      .button {
+        padding: 10px 25px;
+        border-radius: 10px;
+        background-color: #dfd0a7;
+        color: white;
+        transition: background-color 0.3s ease-in;
+      }
+
+      .button:hover {
+        background-color: #d4c18c;
+        color: white;
+      }
+
+      .time {
+        font-size: 10px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 10px;
+      }
+
+      a {
+        color: black;
+        transition: color 0.3s ease-in;
+
+        &:hover {
+          color: rgb(180, 16, 16);
+        }
+      }
+    }
+  }
+}

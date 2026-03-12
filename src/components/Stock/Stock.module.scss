@@ -1,0 +1,53 @@
+.stock {
+  min-height: 70vh;
+
+  .container {
+    width: 1230px;
+    padding: 30px 15px;
+    margin: 0 auto;
+
+    .wrapper {
+      display: flex;
+      justify-content: flex-start;
+      gap: 0 20px;
+      margin-bottom: 30px;
+    }
+
+    .text {
+      max-width: 500px;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+
+    .nav {
+      list-style: disc;
+      margin-bottom: 20px;
+    }
+
+    .buttonWrapper {
+      position: relative;
+      .button {
+        padding: 15px 25px;
+      }
+
+      .buttonImg {
+        position: absolute;
+        top: 11px;
+        left: 20px;
+      }
+    }
+  }
+
+  .title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 40px;
+  }
+}

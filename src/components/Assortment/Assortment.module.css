@@ -1,0 +1,37 @@
+.assortment {
+  min-height: 70vh;
+  color: black;
+}
+.assortment .head {
+  background-image: url("./../../images//backAssortment.png");
+  text-align: center;
+  padding: 150px 0;
+  color: white;
+}
+.assortment .head .title {
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+.assortment .head .subtitle {
+  font-size: 30px;
+}
+.assortment .informationShop {
+  text-align: center;
+  padding: 70px 0;
+}
+.assortment .informationShop p {
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+.assortment .container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.assortment .container .wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 60px;
+}/*# sourceMappingURL=Assortment.module.css.map */

@@ -1,0 +1,32 @@
+.products {
+  min-height: 70vh;
+}
+.products .container {
+  padding: 0 15px;
+  max-width: 1230px;
+  margin: 0 auto;
+}
+.products .container .title {
+  color: #595fef;
+}
+.products .container .wrapperLoading {
+  display: flex;
+  gap: 20px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #595fef;
+  margin-top: 200px;
+}
+.products .container .wrapperLoading .loading {
+  font-size: 40px;
+  font-weight: 700;
+}
+.products .container .wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 60px 0;
+  gap: 40px 20px;
+}/*# sourceMappingURL=Products.module.css.map */

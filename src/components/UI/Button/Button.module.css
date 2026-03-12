@@ -1,0 +1,17 @@
+.button {
+  padding: 15px 25px;
+  width: 300px;
+  background-color: #DFD0A7;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease-in;
+}
+.button:hover {
+  background-color: #cfbe8d;
+}
+.button:disabled {
+  background-color: #cfbe8d;
+  cursor: no-drop;
+}/*# sourceMappingURL=Button.module.css.map */

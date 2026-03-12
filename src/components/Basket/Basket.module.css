@@ -1,0 +1,74 @@
+.basket {
+  min-height: 70vh;
+}
+.basket .head {
+  text-align: center;
+  padding-top: 200px;
+  color: #595fef;
+}
+.basket .head h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.basket .head p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.basket .container {
+  margin: 0 auto;
+  padding: 30px 15px;
+  max-width: 1230px;
+}
+.basket .container .wrapperLoading {
+  text-align: center;
+  margin-top: 200px;
+}
+.basket .container .wrapperLoading .loading {
+  color: #595fef;
+  margin-bottom: 20px;
+}
+.basket .container .title {
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #595fef;
+}
+.basket .container .title span {
+  font-size: 20px;
+  opacity: 0.4;
+  color: #595fef;
+}
+.basket .container .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.basket .container .wrapper .wrapperCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.basket .container .wrapper .cardSumma {
+  padding: 30px;
+  width: 360px;
+  height: 280px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.basket .container .wrapper .cardSumma h3 {
+  margin-bottom: 20px;
+}
+.basket .container .wrapper .cardSumma .text {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.basket .container .wrapper .cardSumma .sale {
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.basket .container .wrapper .cardSumma .text1 {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}/*# sourceMappingURL=Basket.module.css.map */

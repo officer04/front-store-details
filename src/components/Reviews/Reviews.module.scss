@@ -1,0 +1,39 @@
+.reviews {
+  min-height: 70vh;
+  background-color: #DFD0A7;
+  padding: 30px 0;
+  .container {
+    width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    .title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 40px;
+      color: white;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 25px;
+      color: white;
+
+      .link {
+        color: #595fef;
+        transition: 0.3s ease-in;
+
+        :hover {
+          color: red;
+        }
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 20px;
+    }
+  }
+}

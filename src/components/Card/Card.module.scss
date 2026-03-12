@@ -1,0 +1,25 @@
+.card {
+  cursor: pointer;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 350px;
+    width: 380px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .wrapper {
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+  }
+}
